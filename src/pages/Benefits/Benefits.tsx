@@ -66,7 +66,7 @@ function Benefits():JSX.Element{
                 renderItem={(item: any) => 
 
                 
-                    <Box mr={22} ml={22} borderRadius={10} bg="#fff" mt={15} mb={20} padding={20}>
+                    <Box mr={22} ml={22} borderRadius={10} bg="#fff" mt={60} mb={20} padding={20}>
 
                         <Text color="#000" fontWeight="$bold" fontSize={29} mb={5}>{item.item.title}</Text>
                         <Text  mt={5} mb={15} padding={5}  w={250}>{item.item.description}</Text>
@@ -97,7 +97,7 @@ function Benefits():JSX.Element{
                 renderItem={(item: any) => 
 
                 
-                    <Box position="relative" mr={22} ml={22} borderRadius={10} bg="#fff" mt={15} mb={20} padding={20}>
+                    <Box position="relative" mr={22} ml={22}  borderRadius={10} bg="#fff" mt={15} mb={20} padding={20}>
                         <Text color="#000" fontWeight="$bold" fontSize={26} mb={5}>{item.item.benefitActive.title}</Text>
                         <Text mt={5} w={250}>{item.item.benefitActive.description}</Text>
                         
@@ -111,7 +111,6 @@ function Benefits():JSX.Element{
                 scrollEnabled={true}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
-                pagingEnabled
                 />   
 
             </DropShadow>
