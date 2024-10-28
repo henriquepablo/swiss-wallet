@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, Text} from "@gluestack-ui/themed";
+import { FlatList, HStack, Text} from "@gluestack-ui/themed";
 import HeaderWithPoints from "../../components/HeaderWithPoints";
 import Titlle from "../../components/Title";
 import { Box } from "@gluestack-ui/themed";
@@ -36,6 +36,18 @@ function Benefits():JSX.Element{
         })
         .catch((error) => {
             console.log(error);
+        })
+
+        benefitStatus();
+    }
+
+    async function cancelarBenefit(id: string){
+        const response = await api.delete(`/benefit/requests/${id}`)
+        .then(() => {
+            return Alert.alert('A solicitação foi cancelada')
+        })
+        .catch((error) => {
+            console.log(error)
         })
 
         benefitStatus();
@@ -88,7 +100,7 @@ function Benefits():JSX.Element{
             </DropShadow>
 
 
-            <Text ml={25} color="#000" fontWeight="$bold" fontSize={32} mb={5} mt={20}>{status.length == 0 ? '' : 'Solicitados'}</Text>
+            <Text ml={25} color="#000" fontWeight="$bold" fontSize={32} mb={5} mt={benefits.length == 0 ? 60 : ''}>{status.length == 0 ? '' : 'Solicitados'}</Text>
 
             <DropShadow style={{shadowColor: '#000', shadowOffset: {width: 0, height: 4}, shadowOpacity: 0.5, shadowRadius: 4}}>
                 <FlatList
@@ -101,8 +113,16 @@ function Benefits():JSX.Element{
                         <Text color="#000" fontWeight="$bold" fontSize={26} mb={5}>{item.item.benefitActive.title}</Text>
                         <Text mt={5} w={250}>{item.item.benefitActive.description}</Text>
                         
-                        
+                        <HStack mt={60}>
+
+                           {item.item.status === 'APPROVED' || item.item.status === "CLOSED" || item.item.status === 'NOT_APPROVED' ? '' : (
+                                <TouchableOpacity onPress={() => cancelarBenefit(item.item.id)}>
+                                        <Text mr={22} mt={5} bgColor="#C40601"  padding={5} color="#fff" fontWeight={'$semibold'} position="absolute" bottom={10} left={0} borderRadius={5}>Cancelar solicitação</Text>
+                                </TouchableOpacity>
+                           )}
+                           
                             <Text ml={22} mt={5} color="#000" fontWeight={'$semibold'} position="absolute" bottom={10} right={15}>{item.item.status}</Text>
+                        </HStack>
                         
                     </Box>
                     
