@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Divider, HStack, Icon, Text, View } from "@gluestack-ui/themed";
 import LinearGradient from "react-native-linear-gradient";
-import { Bell, ChevronRight, Eye, Settings, User } from "lucide-react-native";
+import { Bell, ChevronRight, Eye, EyeOff, Settings, User } from "lucide-react-native";
 import { TouchableOpacity } from "react-native";
 import DropShadow from "react-native-drop-shadow";
 import { useNavigation } from "@react-navigation/native";
@@ -90,7 +90,7 @@ function HeaderWithPoints():JSX.Element {
                                     </Text>
 
                                     <TouchableOpacity onPress={handlePoints}>
-                                        <Icon as={Eye} color="#000" size="xl" accessible accessibilityLabel="Icone olho, botão"/> 
+                                        {visible == '****' ? <Icon as={EyeOff} color="#000" size="xl" accessible accessibilityLabel="Icone olho, botão"/> : <Icon as={Eye} color="#000" size="xl" accessible accessibilityLabel="Icone olho, botão"/>} 
                                     </TouchableOpacity>
                                 </HStack>
 
