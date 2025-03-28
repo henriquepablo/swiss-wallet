@@ -1,4 +1,9 @@
 {
   "name": "SwissWallet",
-  "displayName": "SwissWallet"
+  "displayName": "SwissWallet",
+  "extra": {
+    "eas": {
+      "projectId": "0b5f0c5d-d411-404a-9182-3d670ef120b3"
+    }
+  }
 }
