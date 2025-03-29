@@ -31,3 +31,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+      
+      - name: Setuo EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          packager: npm
+          token: ${{ secrets.eas_expo_token }}
+      
+      - name: Build android
+        run: eas build --platform android --profile preview --non-interactive --no-wait
