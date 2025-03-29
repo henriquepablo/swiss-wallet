@@ -5,12 +5,13 @@
   },
   "build": {
     "preview": {
+      "image": "ubuntu-2204-jammy-v20250112",
       "android": {
         "distribution": "internal"
       }
     },
     "production": {
-      
+      "image": "ubuntu-2204-jammy-v20250112"
     }
   }
 }

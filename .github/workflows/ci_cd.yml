@@ -32,23 +32,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Passo 1: Instalar Java 17
-      - name: Install Java JDK 17
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y openjdk-17-jdk
-          sudo update-alternatives --config java
-          java -version  # Verifique a versão do Java após a instalação
-
-      # Passo 2: Configurar a variável de ambiente JAVA_HOME
-      - name: Set JAVA_HOME to JDK 17
-        run: echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> $GITHUB_ENV
-
-      # Passo 3: Instalar o EAS CLI
-      - name: Install EAS CLI
-        run: npm install -g eas-cli
-
-      # Passo 4: Configurar o ambiente do EAS
       - name: Setup EAS
         uses: expo/expo-github-action@v8
         with:
@@ -56,6 +39,5 @@ jobs:
           packager: npm
           token: ${{ secrets.eas_expo_token }}
 
-      # Passo 5: Build Android
       - name: Build Android app
         run: eas build --platform android --profile preview --non-interactive --no-wait
