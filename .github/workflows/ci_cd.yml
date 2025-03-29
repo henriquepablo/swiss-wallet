@@ -47,4 +47,4 @@ jobs:
           base64 -d -i google-services.json.b64 > google-services.json
 
       - name: Build Android app
-        run: eas build --platform android --production preview --non-interactive --no-wait
+        run: eas build --platform android --profile production --non-interactive --no-wait
