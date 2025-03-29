@@ -15,7 +15,8 @@
     "production": {
      "autoIncrement": true,
      "android": {
-      "autoIncrement": "versionCode"
+      "autoIncrement": "versionCode",
+      "image": "ubuntu-22.04-jdk-17-ndk-r26b"
      }
     }
   },
@@ -24,7 +25,7 @@
       "android": {
         "track": "internal",
         "serviceAccountKeyPath": "./google-services.json",
-        "releaseStatus": "draft"
+        "releaseStatus": "draft",
       }
     }
   }
