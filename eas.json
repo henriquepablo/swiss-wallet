@@ -5,13 +5,27 @@
   },
   "build": {
     "preview": {
+      "autoIncrement": true,
       "android": {
         "distribution": "internal",
-         "image": "ubuntu-22.04-jdk-17-ndk-r26b"
+         "image": "ubuntu-22.04-jdk-17-ndk-r26b",
+         "autoIncrement": "versionCode"
       }
     },
     "production": {
-     
+     "autoIncrement": true,
+     "android": {
+      "autoIncrement": "versionCode"
+     }
+    }
+  },
+  "submit": {
+    "preview": {
+      "android": {
+        "track": "internal",
+        "serviceAccountKeyPath": "./google-services.json",
+        "releaseStatus": "draft"
+      }
     }
   }
 }
